@@ -1,0 +1,128 @@
+:root {
+    --cyan: #00e5ff;
+    --red: #ff1744;
+    --bg-panel: rgba(5, 10, 15, 0.85);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    background-color: #000;
+    font-family: 'Share Tech Mono', monospace;
+    overflow: hidden;
+    color: var(--cyan);
+}
+
+/* Container do Vídeo e 3D */
+#video-container {
+    position: fixed;
+    top: 0; left: 0; width: 100vw; height: 100vh;
+    z-index: 1;
+    transition: all 0.3s ease;
+}
+
+#webcam {
+    position: absolute;
+    width: 100%; height: 100%;
+    object-fit: cover;
+    transform: scaleX(-1); /* Espelha a câmera */
+    filter: saturate(0.5) contrast(1.2);
+}
+
+#three-canvas {
+    position: absolute;
+    width: 100%; height: 100%;
+    z-index: 2;
+}
+
+/* Painéis de UI */
+.ui-panel {
+    position: fixed;
+    top: 40px;
+    width: 350px;
+    background: var(--bg-panel);
+    border: 1px solid var(--cyan);
+    padding: 20px;
+    z-index: 10;
+    backdrop-filter: blur(5px);
+}
+
+#left-panel { left: 40px; }
+#right-panel { right: 40px; }
+
+.panel-title {
+    font-size: 16px;
+    letter-spacing: 2px;
+    border-bottom: 1px solid var(--cyan);
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+/* O Número Gigante */
+#deviation-score {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 100px;
+    line-height: 1;
+    text-align: center;
+    color: var(--cyan);
+    text-shadow: 0 0 20px var(--cyan);
+    transition: color 0.3s;
+}
+
+/* Feed de Inferências */
+.inference-item {
+    font-size: 22px;
+    margin-bottom: 15px;
+    animation: flashIn 0.3s forwards;
+}
+
+.alert-red { color: var(--red); font-weight: bold; text-shadow: 0 0 10px var(--red); }
+.alert-cyan { color: var(--cyan); }
+
+@keyframes flashIn {
+    0% { opacity: 0; transform: translateX(20px); }
+    100% { opacity: 1; transform: translateX(0); }
+}
+
+/* Efeito de Exclusão (Ao apertar Espaço) */
+body.redacted #video-container {
+    filter: blur(20px) grayscale(100%) contrast(200%);
+}
+
+#redacted-screen {
+    display: none;
+    position: fixed;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 100;
+}
+
+body.redacted #redacted-screen {
+    display: block;
+}
+
+#redacted-screen h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 120px;
+    color: var(--red);
+    letter-spacing: 10px;
+    text-shadow: 0 0 40px var(--red);
+    margin-bottom: 10px;
+}
+
+#redacted-screen p {
+    font-size: 24px;
+    color: #fff;
+    background: var(--red);
+    padding: 10px 20px;
+    display: inline-block;
+}
+
+#hint {
+    position: fixed;
+    bottom: 20px; left: 50%;
+    transform: translateX(-50%);
+    font-size: 14px; color: rgba(0, 229, 255, 0.5);
+    z-index: 10;
+}

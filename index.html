@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>O Olhar Normativo XR</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/face_mesh/face_mesh.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+    <div id="video-container">
+        <video id="webcam" autoplay muted playsinline></video>
+        <canvas id="three-canvas"></canvas>
+    </div>
+
+    <div id="left-panel" class="ui-panel">
+        <div class="panel-title">ÍNDICE DE DESVIO NORMATIVO</div>
+        <div id="deviation-score">0%</div>
+        <div class="metric-group">
+            <div class="metric-label">STATUS DE RASTREAMENTO</div>
+            <div id="tracking-status" class="metric-value tracking-ok">LIGADO</div>
+        </div>
+    </div>
+
+    <div id="right-panel" class="ui-panel">
+        <div class="panel-title">INFERÊNCIAS ALGÓRITMICAS</div>
+        <div id="inferences-feed">
+            <div class="inference-item">AVALIANDO SUJEITO...</div>
+        </div>
+    </div>
+
+    <div id="redacted-screen">
+        <h1>ACESSO NEGADO</h1>
+        <p>SUJEITO FORA DO PADRÃO DE TREINAMENTO</p>
+    </div>
+
+    <div id="hint">[ ESPAÇO ] SIMULAR EVENTO DE VIÉS</div>
+
+    <script src="app.js"></script>
+</body>
+</html>
