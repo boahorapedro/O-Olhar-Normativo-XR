@@ -1,4 +1,6 @@
-# 👁️ O Olhar Normativo XR (The Normative Gaze XR)
+# 👁️ O Olhar Normativo XR
+
+🔗 **[Testar o Protótipo Ao Vivo (GitHub Pages)](https://SEU-USUARIO.github.io/olhar-normativo-xr/)**
 
 > *"A tecnologia não é neutra. A Visão Computacional não apenas nos vê, ela nos classifica."*
 
